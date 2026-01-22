@@ -16,23 +16,11 @@
             ;
 };
 
-&zip_temp_layer {
-    require-prior-idle-ms = <200>;
-    excluded-positions = <
-        19 // H
-        20 // J
-        21 // K
-        22 // L
-        23 // ;
-    >;
-};
-
 / {
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <
-                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)
                             &zip_temp_layer 4 5000
         >;
     };
